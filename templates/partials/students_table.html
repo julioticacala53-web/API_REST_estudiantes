@@ -1,0 +1,30 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Nota</th>
+            <th>Aprobado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.id }}</td>
+            <td>{{ s.dni }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.age }}</td>
+            <td>{{ s.grade }}</td>
+            <td class="{{ 'aprobado' if s.is_approved else 'no-aprobado' }}">
+                {{ 'Sí' if s.is_approved else 'No' }}
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="6">No hay estudiantes registrados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
